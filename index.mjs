@@ -3,8 +3,8 @@ import express from "express"
 import dotenv from "dotenv"
 dotenv.config()
  import router from "./routes/route.mjs"
-import { MongoConnected } from "./db/db.mjs"
-/*import cors from "cors" */
+/*import { MongoConnected } from "./db/db.mjs"
+import cors from "cors" */
 
 const app = express()
 //MongoConnected()
