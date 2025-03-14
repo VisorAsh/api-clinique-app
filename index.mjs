@@ -23,7 +23,9 @@ app.use(cors(corsOptions))
 
 app.use(express.json())
 app.use("/api", router)
-
+app.get("/", (req, res) => {
+    res.send("Bienvenue sur notre app clinic")
+})
 
 app.listen(3500, () => console.log("Serveur démarré avec succès sur le port 3500"))
 

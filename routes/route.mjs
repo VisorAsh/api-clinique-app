@@ -10,10 +10,6 @@ import { CreateStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatie
 
 const router = express.Router()
 
-router.get("/", (req, res) => {
-    res.send("Bienvenue sur notre app clinic")
-})
-
 /****************** Routes patients  *****************/
 router.get("/get-patient/:patientID", GetPatient)
 router.put("/update-patient/:patientID", UpdatePatient)
