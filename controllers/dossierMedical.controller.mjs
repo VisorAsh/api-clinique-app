@@ -20,7 +20,7 @@ export const GetDossier = async (req, res) => {
     try {
         //Récupérons le dossier patient
         const { patientID } = req.params // l'id du dossier
-        const dossier = await DossierMedicalModel.findOne({ patientID })
+        const dossier = await DossierMedicalModel.findbyId({ patientID })
 
         if (dossier) {
             res.status(201).json({ message: "Dossier trouvé avec succès !", data: dossier })
