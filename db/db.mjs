@@ -3,7 +3,8 @@ import mongoose from "mongoose"
 export const MongoConnected = async () => {
     try {
         const url = process.env.mongoURI
-        await mongoose.connect(url, {
+        const mongoCompass = process.env.mongoCompass
+        await mongoose.connect(mongoCompass, {
             dbName: "DB_CLINIC"
         })
         console.log("Connexion à la base de donnée réussie avec succès !")
