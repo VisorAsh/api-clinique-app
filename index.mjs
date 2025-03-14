@@ -2,9 +2,9 @@
 import express from "express"
 import dotenv from "dotenv"
 dotenv.config()
-/* import router from "./routes/route.mjs"
+ import router from "./routes/route.mjs"
 import { MongoConnected } from "./db/db.mjs"
-import cors from "cors" */
+/*import cors from "cors" */
 
 const app = express()
 //MongoConnected()
@@ -25,7 +25,7 @@ app.use(cors(corsOptions))
 */
 
 app.use(express.json())
-//app.use("/api", router)
+app.use("/api", router)
 app.get("/", (req, res) => {
     res.send("Bienvenue sur notre app clinic")
 })
