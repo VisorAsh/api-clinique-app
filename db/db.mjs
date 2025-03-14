@@ -2,7 +2,8 @@ import mongoose from "mongoose"
 
 export const MongoConnected = async () => {
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.2", {
+        const url = process.env.mongoURI
+        await mongoose.connect(url, {
             dbName: "DB_CLINIC"
         })
         console.log("Connexion à la base de donnée réussie avec succès !")

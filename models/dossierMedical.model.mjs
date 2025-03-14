@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 const { models, model, Schema } = mongoose
 
 const DossierMedicalSchema = new Schema({
-    patientID: { type: mongoose.Schema.Types.ObjectId, ref: "Patients", required: true },
+    patientID: { type: String, unique: true, required: true },
     antecedentsMedicaux: [{ type: String }],
     consultations: [{
         date: { type: Date, default: Date.now },

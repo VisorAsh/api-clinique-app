@@ -15,51 +15,51 @@ router.get("/", (req, res) => {
 })
 
 /****************** Routes patients  *****************/
-router.get("/get-patient/:id", GetPatient)
-router.put("/update-patient/:id", UpdatePatient)
-router.delete("/delete-patient/:id", DeletePatient)
+router.get("/get-patient/:patientID", GetPatient)
+router.put("/update-patient/:patientID", UpdatePatient)
+router.delete("/delete-patient/:patientID", DeletePatient)
 router.post("/create-patient", CreatePatient)
 
 /****************** Routes Dossier Medical Patient  *****************/
-router.get("/get-dossier/:id", GetDossier)
-router.put("/update-dossier/:id", UpdateDossier)
+router.get("/get-dossier/:patientID", GetDossier)
+router.put("/update-dossier/:patientID", UpdateDossier)
 router.post("/create-dossier", CreateDossier)
 
 /****************** Routes Rendez vous Patient  *****************/
-router.get("/get-rendezvous/:id", GetRendezvous)
-router.put("/update-rendezvous/:id", UpdateRendezvous)
-router.delete("/delete-rendezvous/:id", DeleteRendezvous)
+router.get("/get-rendezvous/:patientID", GetRendezvous)
+router.put("/update-rendezvous/:patientID", UpdateRendezvous)
+router.delete("/delete-rendezvous/:patientID", DeleteRendezvous)
 router.post("/create-rendezvous", CreateRendezvous)
 
 /****************** Routes Rendez Examen Medical  *****************/
-router.get("/get-examen/:id", GetExamenMedicaux)
-router.put("/update-examen/:id", UpdateExamenMedicaux)
+router.get("/get-examen/:patientID", GetExamenMedicaux)
+router.put("/update-examen/:patientID", UpdateExamenMedicaux)
 router.post("/create-examen", CreateExamenMedicaux)
 
 /****************** Routes Contact urgence  *****************/
-router.get("/get-urgence/:id", GetContactUrgence)
-router.put("/update-urgence/:id", UpdateContactUrgence)
+router.get("/get-urgence/:patientID", GetContactUrgence)
+router.put("/update-urgence/:patientID", UpdateContactUrgence)
 router.post("/create-urgence", CreateContactUrgence)
 
 /****************** Routes Hospitalisation  *****************/
-router.get("/get-hospitalisation/:id", GetHospitalisations)
-router.put("/update-hospitalisation/:id", UpdateHospitalisations)
+router.get("/get-hospitalisation/:patientID", GetHospitalisations)
+router.put("/update-hospitalisation/:patientID", UpdateHospitalisations)
 router.post("/create-hospitalisation", CreateHospitalisations)
 
 /****************** Routes Maladie Chronique  *****************/
-router.get("/get-maladie/:id", GetMaladieChronic)
-router.put("/update-maladie/:id", UpdateMaladieChronic)
+router.get("/get-maladie/:patientID", GetMaladieChronic)
+router.put("/update-maladie/:patientID", UpdateMaladieChronic)
 router.post("/create-maladie", CreateMaladieChronic)
 
 
 /****************** Routes Maladie Chronique  *****************/
-router.get("/get-maladie/:id", GetMaladieChronic)
-router.put("/update-maladie/:id", UpdateMaladieChronic)
+router.get("/get-maladie/:patientID", GetMaladieChronic)
+router.put("/update-maladie/:patientID", UpdateMaladieChronic)
 router.post("/create-maladie", CreateMaladieChronic)
 
 /****************** Routes Statistic  *****************/
-router.get("/get-statistic/:id", GetStatistiquePatient)
-router.put("/update-statistic/:id", UpdateStatistiquePatient)
+router.get("/get-statistic/:patientID", GetStatistiquePatient)
+router.put("/update-statistic/:patientID", UpdateStatistiquePatient)
 router.post("/create-statistic", CreateStatistiquePatient)
 
 export default router

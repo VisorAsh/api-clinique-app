@@ -19,8 +19,8 @@ export const CreateDossier = async (req, res) => {
 export const GetDossier = async (req, res) => {
     try {
         //Récupérons le dossier patient
-        const { id } = req.params // l'id du dossier
-        const dossier = await DossierMedicalModel.findById(id).populate("patientID")
+        const { patientID } = req.params // l'id du dossier
+        const dossier = await DossierMedicalModel.findOne({ patientID })
 
         if (dossier) {
             res.status(201).json({ message: "Dossier trouvé avec succès !", data: dossier })
@@ -35,10 +35,10 @@ export const GetDossier = async (req, res) => {
 export const UpdateDossier = async (req, res) => {
     try {
 
-        const { id } = req.params // l'id du dossier
+        const { patientID } = req.params // l'id du dossier
         const updateData = req.body
         //Modifions le dossier medical
-        const dossier = await DossierMedicalModel.findByIdAndUpdate(id, updateData, { new: true, runValidators: true }).populate("patientID")
+        const dossier = await DossierMedicalModel.findByIdAndUpdate({ patientID }, { $set: updateData }, { new: true, runValidators: true })
 
         if (dossier) {
             res.status(201).json({ message: "Dossier modifié avec succès !", data: dossier })

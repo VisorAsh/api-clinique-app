@@ -19,8 +19,8 @@ export const CreateExamenMedicaux = async (req, res) => {
 export const GetExamenMedicaux = async (req, res) => {
     try {
         //Récupérons l' examen médical
-        const { id } = req.params
-        const examen = await ExamenMedicalModel.findById(id).populate("patientID")
+        const { patientID } = req.params
+        const examen = await ExamenMedicalModel.findOne(patientID)
 
         if (examen) {
             res.status(201).json({ message: "Examen médical récupéré avec succès !", data: examen })
@@ -36,9 +36,9 @@ export const GetExamenMedicaux = async (req, res) => {
 export const UpdateExamenMedicaux = async (req, res) => {
     try {
         //Modifions l' examen médical
-        const { id } = req.params
+        const { patientID } = req.params
         const updateData = req.body
-        const examen = await ExamenMedicalModel.findByIdAndUpdate(id, updateData, { new: true, runValidators: true }).populate("patientID")
+        const examen = await ExamenMedicalModel.findOneAndUpdate({patientID},{$set: updateData}, { new: true, runValidators: true })
 
         if (examen) {
             res.status(201).json({ message: "Examen médical modifié avec succès !", data: examen })

@@ -19,8 +19,8 @@ export const CreateContactUrgence = async (req, res) => {
 export const GetContactUrgence = async (req, res) => {
     try {
         //Récupérons le contact urgence
-        const { id } = req.params
-        const contact = await ContactUrgenceModel.findById(id).populate("patientID")
+        const { patientID } = req.params
+        const contact = await ContactUrgenceModel.findOne({ patientID })
 
         if (contact) {
             res.status(200).json({ message: "Contact urgence récupéré avec succès !", data: contact })
@@ -36,10 +36,10 @@ export const GetContactUrgence = async (req, res) => {
 export const UpdateContactUrgence = async (req, res) => {
     try {
         //Modifions le contact urgence
-        const { id } = req.params
+        const { patientID } = req.params
         const updateData = req.body
 
-        const contact = await ContactUrgenceModel.findByIdAndUpdate(id, updateData, { new: true, runValidators: true }).populate("patientID")
+        const contact = await ContactUrgenceModel.findOneAndUpdate({ patientID }, { $set: updateData }, { new: true, runValidators: true })
 
         if (contact) {
             res.status(200).json({ message: "Contact urgence modifié avec succès !", data: contact })

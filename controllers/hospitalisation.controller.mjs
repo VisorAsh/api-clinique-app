@@ -22,8 +22,8 @@ export const GetHospitalisations = async (req, res) => {
     try {
 
         //Récupération des données de l'hospitalisation
-        const { id } = req.params
-        const hospitalisation = await HospitalisationsModel.findById(id).populate("patientID")
+        const { patientID } = req.params
+        const hospitalisation = await HospitalisationsModel.findOne({ patientID })
 
         if (hospitalisation) {
             res.status(201).json({ message: "Hospitalisation récupérée avec succès !", data: hospitalisation })
@@ -40,9 +40,9 @@ export const GetHospitalisations = async (req, res) => {
 export const UpdateHospitalisations = async (req, res) => {
     try {
         //Récupération des données de l'hospitalisation
-        const { id } = req.params
+        const { patientID } = req.params
         const updateData = req.body
-        const hospitalisation = await HospitalisationsModel.findByIdAndUpdate(id, updateData, { new: true, runValidators: true }).populate("patientID")
+        const hospitalisation = await HospitalisationsModel.findOneAndUpdate({ patientID }, { $set: updateData }, { new: true, runValidators: true })
 
         if (hospitalisation) {
             res.status(201).json({ message: "Hospitalisation modifiée avec succès !", data: hospitalisation })

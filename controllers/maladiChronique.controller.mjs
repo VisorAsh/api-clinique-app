@@ -19,8 +19,8 @@ export const CreateMaladieChronic = async (req, res) => {
 export const GetMaladieChronic = async (req, res) => {
     try {
         //Récupérons une maladie chrononique
-        const { id } = req.params
-        const maladie = await MaladieChronicModel.findById(id).populate("patientID")
+        const { patientID } = req.params
+        const maladie = await MaladieChronicModel.findOne({ patientID })
 
         if (maladie) {
             res.status(201).json({ message: "Maladie chronique récuperée avec succès !", data: maladie })
@@ -37,9 +37,9 @@ export const GetMaladieChronic = async (req, res) => {
 export const UpdateMaladieChronic = async (req, res) => {
     try {
         //Modification de la maladie chrononique
-        const { id } = req.params
+        const { patientID } = req.params
         const updateData = req.body
-        const maladie = await MaladieChronicModel.findByIdAndUpdate(id, updateData, { new: true, runValidators: true }).populate("patientID")
+        const maladie = await MaladieChronicModel.findOneAndUpdate({ patientID }, { $set: updateData }, { new: true, runValidators: true })
 
         if (maladie) {
             res.status(201).json({ message: "Maladie chronique modifiée avec succès !", data: maladie })

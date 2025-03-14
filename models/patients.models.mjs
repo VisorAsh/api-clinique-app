@@ -3,6 +3,7 @@ import { type } from "os"
 const { models, model, Schema } = mongoose
 
 const InfosPatientsSchema = new Schema({
+    patientID: { type: String, unique: true, required: true },
     nom: { type: String, required: true },
     prenom: { type: String, required: true },
     dateNaissance: { type: Date, required: true },

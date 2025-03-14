@@ -21,8 +21,8 @@ export const CreateStatistiquePatient = async (req, res) => {
 export const GetStatistiquePatient = async (req, res) => {
     try {
         //Récuperation du statistque du patient
-        const { id } = req.params
-        const statistic = await StatistiquePatientModel.findById(id).populate("patientID")
+        const { patientID } = req.params
+        const statistic = await StatistiquePatientModel.findOne({ patientID })
 
         if (statistic) {
             res.status(200).json({ message: "Statistique patient recupéré avec succès !", data: statistic })
@@ -39,9 +39,9 @@ export const GetStatistiquePatient = async (req, res) => {
 export const UpdateStatistiquePatient = async (req, res) => {
     try {
         //Modificaion du statistque du patient
-        const { id } = req.params
+        const { patientID } = req.params
         const updateData = req.body
-        const statistic = await StatistiquePatientModel.findByIdAndUpdate(id, updateData, { new: true, runValidators: true }).populate("patientID")
+        const statistic = await StatistiquePatientModel.findOneAndUpdate({ patientID }, { $set: updateData }, { new: true, runValidators: true })
 
         if (statistic) {
             res.status(200).json({ message: "Statistique patient modifié avec succès !", data: statistic })
