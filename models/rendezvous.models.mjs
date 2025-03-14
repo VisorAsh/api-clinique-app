@@ -1,5 +1,5 @@
 import mongoose, { trusted } from "mongoose"
-const { Schema, models, model } = mongoose
+const { Schema, model } = mongoose
 
 export const RendezVousSchema = new Schema({
     patientID: { type: String, unique: true, required: true },
@@ -11,4 +11,4 @@ export const RendezVousSchema = new Schema({
     notification: { type: Boolean, default: false }
 })
 
-export const RendezVousModel = models.RendezVous || model("RendezVous", RendezVousSchema)
+export const RendezVousModel = model.RendezVous || model("RendezVous", RendezVousSchema)

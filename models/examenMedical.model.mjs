@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-const { models, model, Schema } = mongoose
+const { model, Schema } = mongoose
 
 export const ExamenMedicalSchema = new Schema({
     patientID: { type: String, unique: true, required: true },
@@ -9,4 +9,4 @@ export const ExamenMedicalSchema = new Schema({
     fichierUrl: { type: String }, //Url du fichier stocké
 })
 
-export const ExamenMedicalModel = models.ExamenMedical || model("ExamenMedical", ExamenMedicalSchema)
+export const ExamenMedicalModel = model.ExamenMedical || model("ExamenMedical", ExamenMedicalSchema)

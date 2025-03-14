@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 import { type } from "os"
-const { models, model, Schema } = mongoose
+const { model, Schema } = mongoose
 
 const InfosPatientsSchema = new Schema({
     patientID: { type: String, unique: true, required: true },
@@ -13,4 +13,4 @@ const InfosPatientsSchema = new Schema({
     createdAt: { type: Date, default: Date.now() }
 })
 
-export const InfosPatientsModel = models.Patients || model("Patients", InfosPatientsSchema)
+export const InfosPatientsModel = model.Patients || model("Patients", InfosPatientsSchema)

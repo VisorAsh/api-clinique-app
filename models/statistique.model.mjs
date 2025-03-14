@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-const { models, model, Schema } = mongoose
+const { model, Schema } = mongoose
 
 const StatistiquePatientSchema = new Schema({
     patientID: { type: String, unique: true, required: true },
@@ -11,4 +11,4 @@ const StatistiquePatientSchema = new Schema({
     notes: { type: String }
 })
 
-export const StatistiquePatientModel = models.StatistiquePatients || model("StatistiquePatients", StatistiquePatientSchema)
+export const StatistiquePatientModel = model.StatistiquePatients || model("StatistiquePatients", StatistiquePatientSchema)
