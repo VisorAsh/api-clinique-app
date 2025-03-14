@@ -26,3 +26,5 @@ app.use("/api", router)
 
 
 app.listen(3500, () => console.log("Serveur démarré avec succès sur le port 3500"))
+
+export default app
