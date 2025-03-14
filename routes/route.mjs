@@ -1,7 +1,7 @@
 import express from "express"
 import { CreatePatient, DeletePatient, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
 import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
-import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
+import { CreateRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
 import { CreateContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
 import { CreateHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
@@ -11,6 +11,9 @@ import { CreateStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatie
 const router = express.Router()
 
 /****************** Routes patients  *****************/
+router.get("/get-patient/", (req, res) => {
+    res.json("Salut je suis une route qui marche très bien")
+})
 router.get("/get-patient/:patientID", GetPatient)
 router.put("/update-patient/:patientID", UpdatePatient)
 router.delete("/delete-patient/:patientID", DeletePatient)
@@ -24,7 +27,7 @@ router.post("/create-dossier", CreateDossier)
 /****************** Routes Rendez vous Patient  *****************/
 router.get("/get-rendezvous/:patientID", GetRendezvous)
 router.put("/update-rendezvous/:patientID", UpdateRendezvous)
-router.delete("/delete-rendezvous/:patientID", DeleteRendezvous)
+/* router.delete("/delete-rendezvous/:patientID", DeleteRendezvous) */
 router.post("/create-rendezvous", CreateRendezvous)
 
 /****************** Routes Rendez Examen Medical  *****************/
