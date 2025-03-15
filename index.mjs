@@ -27,7 +27,7 @@ app.use(express.json())
 app.use("/api", router)
 app.get("/", async (req, res) => {
     const re = await MongoConnected()
-    if (res === "ok") res.send(res)
+    if (re === "ok") res.send(res)
     else res.send("Erreur de connexion à la bd")
 })
 
