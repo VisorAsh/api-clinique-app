@@ -2,10 +2,10 @@ import express from "express"
 import { CreatePatient, DeletePatient, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
 import { CreateContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
 import { CreateExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
+import { CreateHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
+
 /*import { CreateRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
-
-import { CreateHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
 import { CreateStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatient } from "../controllers/statisticPatient.controller.mjs"
  */
@@ -41,9 +41,9 @@ router.put("/update-urgence/:patientID", UpdateContactUrgence)
 router.post("/create-urgence", CreateContactUrgence)
 
 /****************** Routes Hospitalisation  *****************/
-/* router.get("/get-hospitalisation/:patientID", GetHospitalisations)
+router.get("/get-hospitalisation/:patientID", GetHospitalisations)
 router.put("/update-hospitalisation/:patientID", UpdateHospitalisations)
-router.post("/create-hospitalisation", CreateHospitalisations) */
+router.post("/create-hospitalisation", CreateHospitalisations)
 
 /****************** Routes Maladie Chronique  *****************/
 /* router.get("/get-maladie/:patientID", GetMaladieChronic)
