@@ -20,7 +20,7 @@ export const GetExamenMedicaux = async (req, res) => {
     try {
         //Récupérons l' examen médical
         const { patientID } = req.params
-        const examen = await ExamenMedicalModel.findOne(patientID)
+        const examen = await ExamenMedicalModel.findOne({ patientID })
 
         if (examen) {
             res.status(201).json({ message: "Examen médical récupéré avec succès !", data: examen })
@@ -38,7 +38,7 @@ export const UpdateExamenMedicaux = async (req, res) => {
         //Modifions l' examen médical
         const { patientID } = req.params
         const updateData = req.body
-        const examen = await ExamenMedicalModel.findOneAndUpdate({patientID},{$set: updateData}, { new: true, runValidators: true })
+        const examen = await ExamenMedicalModel.findOneAndUpdate({ patientID }, { $set: updateData }, { new: true, runValidators: true })
 
         if (examen) {
             res.status(201).json({ message: "Examen médical modifié avec succès !", data: examen })
