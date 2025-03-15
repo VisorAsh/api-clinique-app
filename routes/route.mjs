@@ -4,8 +4,8 @@ import { CreateContactUrgence, GetContactUrgence, UpdateContactUrgence } from ".
 import { CreateExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
 import { CreateHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
-
-/*import { CreateRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
+import { CreateRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
+/*
 import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
 import { CreateStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatient } from "../controllers/statisticPatient.controller.mjs"
  */
@@ -27,9 +27,9 @@ router.post("/create-patient", CreatePatient)
 // router.post("/create-dossier", CreateDossier)
 
 /****************** Routes Rendez vous Patient  *****************/
-/* router.get("/get-rendezvous/:patientID", GetRendezvous)
+router.get("/get-rendezvous/:patientID", GetRendezvous)
 router.put("/update-rendezvous/:patientID", UpdateRendezvous)
-router.post("/create-rendezvous", CreateRendezvous) */
+router.post("/create-rendezvous", CreateRendezvous)
 
 /****************** Routes Rendez Examen Medical  *****************/
 router.get("/get-examen/:patientID", GetExamenMedicaux)
