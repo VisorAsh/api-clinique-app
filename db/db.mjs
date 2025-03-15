@@ -8,9 +8,7 @@ export const MongoConnected = async () => {
          const url = process.env.mongoURI
         
          const mongoCompass = process.env.mongoCompass */
-        await mongoose.connect(atlas, {
-            dbName: "DB_CLINIC"
-        })
+        await mongoose.connect(atlas)
         console.log("Connexion à la base de donnée réussie avec succès !")
         return "ok"
     } catch (error) {
