@@ -4,9 +4,7 @@ export const CreateDossier = async (req, res) => {
     try {
         const { patientID, antecedentsMedicaux, consultations, prescriptions, hospitalisations } = req.body
         //Testons voir si le patient à déjà un dossier
-        console.log("patientID reçu :", patientID);
         const dossierExist = await DossierMedicalModel.findOne({ patientID })
-        console.log("Dossier existant :", dossierExist);
 
         if (dossierExist) {
             return res.status(400).json({ message: "Ce patient a déjà un dossier!" })

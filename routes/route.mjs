@@ -1,7 +1,6 @@
 import express from "express"
 import { CreatePatient, DeletePatient, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
-import { CreateDossier } from "../controllers/dossierMedical.controller.mjs"
-// import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
+import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
 /*import { CreateRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
 import { CreateContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
@@ -21,8 +20,8 @@ router.delete("/delete-patient/:patientID", DeletePatient)
 router.post("/create-patient", CreatePatient)
 
 /****************** Routes Dossier Medical Patient  *****************/
-// router.get("/get-dossier/:patientID", GetDossier)
-// router.put("/update-dossier/:patientID", UpdateDossier)
+router.get("/get-dossier/:patientID", GetDossier)
+router.put("/update-dossier/:patientID", UpdateDossier)
 router.post("/create-dossier", CreateDossier)
 
 /****************** Routes Rendez vous Patient  *****************/
