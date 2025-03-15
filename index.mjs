@@ -28,7 +28,7 @@ app.use("/api", router)
 app.get("/", async (req, res) => {
     const re = await MongoConnected()
     if (re === "ok") res.send("success")
-    else res.send("Erreur de connexion à la bd")
+    else res.send("Impossible de se connecter à la bd")
 })
 
 app.listen(3600, () => console.log("Serveur démarré avec succès sur le port 3600"))
