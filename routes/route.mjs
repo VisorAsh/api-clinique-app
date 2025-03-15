@@ -1,9 +1,9 @@
 import express from "express"
 import { CreatePatient, DeletePatient, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
-import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
-/*import { CreateRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
-import { CreateExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
 import { CreateContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
+/*import { CreateRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
+import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
+import { CreateExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
 import { CreateHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
 import { CreateStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatient } from "../controllers/statisticPatient.controller.mjs"
@@ -20,9 +20,9 @@ router.delete("/delete-patient/:patientID", DeletePatient)
 router.post("/create-patient", CreatePatient)
 
 /****************** Routes Dossier Medical Patient  *****************/
-router.get("/get-dossier/:patientID", GetDossier)
-router.put("/update-dossier/:patientID", UpdateDossier)
-router.post("/create-dossier", CreateDossier)
+// router.get("/get-dossier/:patientID", GetDossier)
+// router.put("/update-dossier/:patientID", UpdateDossier)
+// router.post("/create-dossier", CreateDossier)
 
 /****************** Routes Rendez vous Patient  *****************/
 /* router.get("/get-rendezvous/:patientID", GetRendezvous)
@@ -35,9 +35,9 @@ router.put("/update-examen/:patientID", UpdateExamenMedicaux)
 router.post("/create-examen", CreateExamenMedicaux) */
 
 /****************** Routes Contact urgence  *****************/
-/* router.get("/get-urgence/:patientID", GetContactUrgence)
+router.get("/get-urgence/:patientID", GetContactUrgence)
 router.put("/update-urgence/:patientID", UpdateContactUrgence)
-router.post("/create-urgence", CreateContactUrgence) */
+router.post("/create-urgence", CreateContactUrgence)
 
 /****************** Routes Hospitalisation  *****************/
 /* router.get("/get-hospitalisation/:patientID", GetHospitalisations)

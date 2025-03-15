@@ -2,8 +2,17 @@ import { ContactUrgenceModel } from "../models/contactUrgence.model.mjs"
 
 export const CreateContactUrgence = async (req, res) => {
     try {
+
+        const { patientID, nom, relation, telephone } = req.body
+
+        //testons voir si le patient a déjà un contact urgence
+        const contactExist = await ContactUrgenceModel.findOne({ patientID })
+        if (contactExist) {
+            return res.status(400).json({ message: "Ce patient a déjà un contact urgence !" })
+        }
+
         //Création d'un contact urgence
-        const contact = new ContactUrgenceModel(req.body)
+        const contact = new ContactUrgenceModel({ patientID, nom, relation, telephone })
         await contact.save()
 
         if (contact) {
