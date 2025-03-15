@@ -5,9 +5,10 @@ import { CreateExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from ".
 import { CreateHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
 import { CreateRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
+import { CreateStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatient } from "../controllers/statisticPatient.controller.mjs"
 /*
 import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
-import { CreateStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatient } from "../controllers/statisticPatient.controller.mjs"
+
  */
 
 const router = express.Router()
@@ -52,14 +53,9 @@ router.put("/update-maladie/:patientID", UpdateMaladieChronic)
 router.post("/create-maladie", CreateMaladieChronic)
 
 
-/****************** Routes Maladie Chronique  *****************/
-/* router.get("/get-maladie/:patientID", GetMaladieChronic)
-router.put("/update-maladie/:patientID", UpdateMaladieChronic)
-router.post("/create-maladie", CreateMaladieChronic) */
-
 /****************** Routes Statistic  *****************/
-/* router.get("/get-statistic/:patientID", GetStatistiquePatient)
+router.get("/get-statistic/:patientID", GetStatistiquePatient)
 router.put("/update-statistic/:patientID", UpdateStatistiquePatient)
-router.post("/create-statistic", CreateStatistiquePatient) */
+router.post("/create-statistic", CreateStatistiquePatient)
 
 export default router
