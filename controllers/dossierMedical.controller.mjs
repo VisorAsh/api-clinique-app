@@ -10,7 +10,7 @@ export const CreateDossier = async (req, res) => {
             //Testons voir si le patient à déjà un dossier
             const dossierExist = await DossierMedicalModel.findById(_id)
             if (dossierExist) {
-                return res.status(400).json({ message: "Ce patient a déjà un dossier!" })
+                return res.status(400).json({ message: "Ce patient a déjà un dossier médical !" })
             }
 
             //créons un nouveau dossier patient

@@ -2,7 +2,6 @@ import mongoose, { trusted } from "mongoose"
 const { Schema, model } = mongoose
 
 export const RendezVousSchema = new Schema({
-    patientID: { type: String, unique: true, required: true },
     motif: { type: String, required: true },
     specialite: { type: String, required: true },
     dateReservation: { type: Date, default: Date.now(), required: true },

@@ -2,7 +2,6 @@ import mongoose from "mongoose"
 const { model, Schema } = mongoose
 
 const HospitalisationsSchema = new Schema({
-    patientID: { type: String, unique: true, required: true },
     dateAdmission: { type: Date, required: true },
     dateSortie: { type: Date },
     motif: { type: String, required: true },
