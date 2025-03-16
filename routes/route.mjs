@@ -7,9 +7,9 @@ import { CreateMaladieChronic, DeleteMaladieChronic, GetMaladieChronic, UpdateMa
 import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateStatistiquePatient, DeleteStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatient } from "../controllers/statisticPatient.controller.mjs"
 import { CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/usersController.mjs"
-import { CreateDossier, DeleteDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
-/*
 
+/*
+import { CreateDossier, DeleteDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
 
  */
 
@@ -31,10 +31,10 @@ router.delete("/delete-user/:_id", DeleteUser)
 router.post("/create-user", CreateUser)
 
 /****************** Routes Dossier Medical Patient  *****************/
-router.get("/get-dossier/:_id", GetDossier)
-router.put("/update-dossier/:_id", UpdateDossier)
-router.delete("/delete-dossier/:_id", DeleteDossier)
-router.post("/create-dossier", CreateDossier)
+// router.get("/get-dossier/:_id", GetDossier)
+// router.put("/update-dossier/:_id", UpdateDossier)
+// router.delete("/delete-dossier/:_id", DeleteDossier)
+// router.post("/create-dossier", CreateDossier)
 
 /****************** Routes Rendez vous Patient  *****************/
 router.get("/get-rendezvous/:_id", GetRendezvous)
