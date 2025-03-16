@@ -31,9 +31,9 @@ router.delete("/delete-user/:_id", DeleteUser)
 router.post("/create-user", CreateUser)
 
 /****************** Routes Dossier Medical Patient  *****************/
-// router.get("/get-dossier/:_id", GetDossier)
-// router.put("/update-dossier/:_id", UpdateDossier)
-// router.post("/create-dossier", CreateDossier)
+router.get("/get-dossier/:_id", GetDossier)
+router.put("/update-dossier/:_id", UpdateDossier)
+router.post("/create-dossier", CreateDossier)
 
 /****************** Routes Rendez vous Patient  *****************/
 router.get("/get-rendezvous/:_id", GetRendezvous)
