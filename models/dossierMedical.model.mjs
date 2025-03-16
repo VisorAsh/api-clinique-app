@@ -24,4 +24,4 @@ const DossierMedicalSchema = new Schema({
     }]
 })
 
-export const DossierMedicalModel = model.DossierMedicalElectronic || model("DossierMedicalElectronic", DossierMedicalSchema)
+export const DossierMedicalModel = model.DossierMedical || model("DossierMedical", DossierMedicalSchema)
