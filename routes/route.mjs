@@ -7,9 +7,9 @@ import { CreateMaladieChronic, DeleteMaladieChronic, GetMaladieChronic, UpdateMa
 import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateStatistiquePatient, DeleteStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatient } from "../controllers/statisticPatient.controller.mjs"
 import { CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/usersController.mjs"
-
-/*
 import { CreateDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
+/*
+
 
  */
 
