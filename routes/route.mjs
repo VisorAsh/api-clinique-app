@@ -4,12 +4,12 @@ import { CreateExamenMedicaux, DeleteExamenMedicaux, GetExamenMedicaux, UpdateEx
 import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/usersController.mjs"
 
+import { CreateContactUrgence, DeleteContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
 
 /*
 import { CreateConsultaion, DeleteConsultaion, GetConsultaion, UpdateConsultaion } from "../controllers/consultation.controller.mjs"
 import { CreateStatistique, DeleteStatistique, GetStatistique, UpdateStatistique } from "../controllers/statistique.controller.mjs"
 
-import { CreateContactUrgence, DeleteContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
 import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateMaladieChronic, DeleteMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
 
@@ -45,10 +45,10 @@ router.delete("/delete-examen/:_id", DeleteExamenMedicaux)
 router.post("/create-examen", CreateExamenMedicaux)
 
 /****************** Routes Contact urgence  *****************/
-// router.get("/get-urgence/:_id", GetContactUrgence)
-// router.put("/update-urgence/:_id", UpdateContactUrgence)
-// router.delete("/delete-urgence/:_id", DeleteContactUrgence)
-// router.post("/create-urgence", CreateContactUrgence)
+router.get("/get-urgence/:_id", GetContactUrgence)
+router.put("/update-urgence/:_id", UpdateContactUrgence)
+router.delete("/delete-urgence/:_id", DeleteContactUrgence)
+router.post("/create-urgence", CreateContactUrgence)
 
 /****************** Routes Hospitalisation  *****************/
 // router.get("/get-hospitalisation/:_id", GetHospitalisations)
