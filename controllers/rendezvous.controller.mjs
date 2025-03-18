@@ -27,7 +27,7 @@ export const GetRendezvous = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Récupérons un rendez vous
-            const rdv = await RendezVousModel.findById(_id)
+            const rdv = await RendezVousModel.findById(_id).populate("patientId")
             if (rdv) {
                 res.status(201).json({ message: "rendez-vous trouvé avec succès !", data: rdv })
             } else {
@@ -47,7 +47,7 @@ export const UpdateRendezvous = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Récupérons un rendez vous
-            const rdv = await RendezVousModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true })
+            const rdv = await RendezVousModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true }).populate("patientId")
             if (rdv) {
                 res.status(201).json({ message: "rendez-vous modifié avec succès !", data: rdv })
             } else {

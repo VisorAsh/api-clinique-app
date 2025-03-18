@@ -2,6 +2,7 @@ import { MongoConnected } from "../db/db.mjs"
 import { UserModel } from "../models/usersModel.model.mjs"
 
 export const CreateUser = async (req, res) => {
+    const { nom, prenom, email, specialite, adresse, tel, dateEmbauche, autorisation } = req.body
     try {
         //Connexion à la base de donnée
         const db = await MongoConnected()
@@ -11,7 +12,7 @@ export const CreateUser = async (req, res) => {
                 return res.json({ message: "Cet adresse email est déjà utilisé ,veillez renseigner un adresse email non utilisé !" })
             }
 
-            const user = new UserModel(req.body)
+            const user = new UserModel({ nom, prenom, email, specialite, adresse, tel, dateEmbauche, autorisation })
             await user.save()
             if (user) {
                 res.json({ message: "Utilisateur créé avec succès !", data: user })

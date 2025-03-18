@@ -9,7 +9,7 @@ const UserSchema = new Schema({
     adresse: { type: String, required: true },
     tel: { type: String, required: true },
     dateEmbauche: { type: Date, required: true },
-    autorisation: { type: Date, required: true }
+    autorisation: { type: Boolean, default: false }
 })
 
 export const UserModel = model.Users || model("Users", UserSchema)

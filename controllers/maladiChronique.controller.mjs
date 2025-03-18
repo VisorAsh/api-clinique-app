@@ -6,11 +6,11 @@ export const CreateMaladieChronic = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Ajout de maladie chrononique
-            const maladie = new MaladieChronicModel(req.body)
-            await maladie.save()
+            const maladieChronique = new MaladieChronicModel(req.body)
+            await maladieChronique.save()
 
-            if (maladie) {
-                res.status(201).json({ message: "Maladie chronique ajoutée avec succès !", data: maladie })
+            if (maladieChronique) {
+                res.status(201).json({ message: "Maladie chronique ajoutée avec succès !", data: maladieChronique })
             } else {
                 res.status(400).json({ message: "Echec lors de l'ajout de la maladie chronique !" })
             }
@@ -27,7 +27,7 @@ export const GetMaladieChronic = async (req, res) => {
         //Récupérons une maladie chrononique
         const db = await MongoConnected()
         if (db === "ok") {
-            const maladie = await MaladieChronicModel.findById(_id)
+            const maladie = await MaladieChronicModel.findById(_id).populate("patientId")
 
             if (maladie) {
                 res.status(201).json({ message: "Maladie chronique récuperée avec succès !", data: maladie })
@@ -50,7 +50,7 @@ export const UpdateMaladieChronic = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Modification de la maladie chrononique
-            const maladie = await MaladieChronicModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true })
+            const maladie = await MaladieChronicModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true }).populate("patientId")
 
             if (maladie) {
                 res.status(201).json({ message: "Maladie chronique modifiée avec succès !", data: maladie })

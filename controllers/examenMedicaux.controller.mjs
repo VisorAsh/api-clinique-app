@@ -27,7 +27,7 @@ export const GetExamenMedicaux = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Récupérons l' examen médical
-            const examen = await ExamenMedicalModel.findById(_id)
+            const examen = await ExamenMedicalModel.findById(_id).populate("patientId")
 
             if (examen) {
                 res.status(201).json({ message: "Examen médical récupéré avec succès !", data: examen })
@@ -49,7 +49,7 @@ export const UpdateExamenMedicaux = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Modifions l' examen médical
-            const examen = await ExamenMedicalModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true })
+            const examen = await ExamenMedicalModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true }).populate("patientId")
 
             if (examen) {
                 res.status(201).json({ message: "Examen médical modifié avec succès !", data: examen })

@@ -5,11 +5,11 @@ import { CreateExamenMedicaux, DeleteExamenMedicaux, GetExamenMedicaux, UpdateEx
 import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateMaladieChronic, DeleteMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
 import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
-import { CreateStatistiquePatient, DeleteStatistiquePatient, GetStatistiquePatient, UpdateStatistiquePatient } from "../controllers/statisticPatient.controller.mjs"
 import { CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/usersController.mjs"
+import { CreateConsultaion, DeleteConsultaion, GetConsultaion, UpdateConsultaion } from "../controllers/consultation.controller.mjs"
+import { CreateStatistique, DeleteStatistique, GetStatistique, UpdateStatistique } from "../controllers/statistique.controller.mjs"
 
 /*
-import { CreateDossier, DeleteDossier, GetDossier, UpdateDossier } from "../controllers/dossierMedical.controller.mjs"
 
  */
 
@@ -24,17 +24,11 @@ router.put("/update-patient/:_id", UpdatePatient)
 router.delete("/delete-patient/:_id", DeletePatient)
 router.post("/create-patient", CreatePatient)
 
-/****************** Routes Dossier Medical Patient  *****************/
+/****************** Routes Utilisateur  *****************/
 router.get("/get-user/:_id", GetUser)
 router.put("/update-user/:_id", UpdateUser)
 router.delete("/delete-user/:_id", DeleteUser)
 router.post("/create-user", CreateUser)
-
-/****************** Routes Dossier Medical Patient  *****************/
-// router.get("/get-dossier/:_id", GetDossier)
-// router.put("/update-dossier/:_id", UpdateDossier)
-// router.delete("/delete-dossier/:_id", DeleteDossier)
-// router.post("/create-dossier", CreateDossier)
 
 /****************** Routes Rendez vous Patient  *****************/
 router.get("/get-rendezvous/:_id", GetRendezvous)
@@ -68,9 +62,15 @@ router.post("/create-maladie", CreateMaladieChronic)
 
 
 /****************** Routes Statistic  *****************/
-router.get("/get-statistic/:_id", GetStatistiquePatient)
-router.put("/update-statistic/:_id", UpdateStatistiquePatient)
-router.delete("/delete-statistic/:_id", DeleteStatistiquePatient)
-router.post("/create-statistic", CreateStatistiquePatient)
+router.get("/get-statistic/:_id", GetStatistique)
+router.put("/update-statistic/:_id", UpdateStatistique)
+router.delete("/delete-statistic/:_id", DeleteStatistique)
+router.post("/create-statistic", CreateStatistique)
+
+/****************** Routes Consultations  *****************/
+router.get("/get-consultation/:_id", GetConsultaion)
+router.put("/update-consultation/:_id", UpdateConsultaion)
+router.delete("/delete-consultation/:_id", DeleteConsultaion)
+router.post("/create-consultation", CreateConsultaion)
 
 export default router

@@ -29,7 +29,7 @@ export const GetHospitalisations = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Récupération des données de l'hospitalisation
-            const hospitalisation = await HospitalisationsModel.findById(_id)
+            const hospitalisation = await HospitalisationsModel.findById(_id).populate("patientId")
 
             if (hospitalisation) {
                 res.status(201).json({ message: "Hospitalisation récupérée avec succès !", data: hospitalisation })
@@ -52,7 +52,7 @@ export const UpdateHospitalisations = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Récupération des données de l'hospitalisation
-            const hospitalisation = await HospitalisationsModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true })
+            const hospitalisation = await HospitalisationsModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true }).populate("patientId")
 
             if (hospitalisation) {
                 res.status(201).json({ message: "Hospitalisation modifiée avec succès !", data: hospitalisation })

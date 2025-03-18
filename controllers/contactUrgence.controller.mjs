@@ -14,7 +14,7 @@ export const CreateContactUrgence = async (req, res) => {
             }
 
             //Création d'un contact urgence
-            const contact = new ContactUrgenceModel({ _id, nom, relation, telephone })
+            const contact = new ContactUrgenceModel(req.body)
             await contact.save()
 
             if (contact) {
@@ -23,7 +23,6 @@ export const CreateContactUrgence = async (req, res) => {
                 res.status(400).json({ message: "Erreur , contact urgence non créé !" })
             }
         } else return res.status(500).json({ message: "Erreur de connexion à la base de données" })
-
 
     } catch (error) {
         console.log(error)
@@ -36,7 +35,7 @@ export const GetContactUrgence = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Récupérons le contact urgence
-            const contact = await ContactUrgenceModel.findById(_id)
+            const contact = await ContactUrgenceModel.findById(_id).populate("patientId")
             if (contact) {
                 res.status(200).json({ message: "Contact urgence récupéré avec succès !", data: contact })
             } else {
@@ -57,14 +56,14 @@ export const UpdateContactUrgence = async (req, res) => {
         const db = await MongoConnected()
         if (db === "ok") {
             //Modifions le contact urgence
-            const contact = await ContactUrgenceModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true })
+            const contact = await ContactUrgenceModel.findByIdAndUpdate(_id, updateData, { new: true, runValidators: true }).populate("patientId")
 
             if (contact) {
                 res.status(200).json({ message: "Contact urgence modifié avec succès !", data: contact })
             } else {
                 res.status(400).json({ message: "Erreur lors de la modification du contact urgence !" })
             }
-            
+
         } else return res.status(500).json({ message: "Erreur de connexion à la base de données" })
 
     } catch (error) {

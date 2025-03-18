@@ -22,7 +22,7 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 */
-
+MongoConnected()
 app.use(express.json())
 app.use("/api", router)
 app.get("/", async (req, res) => {
