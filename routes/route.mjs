@@ -1,15 +1,17 @@
 import express from "express"
 import { CreatePatient, DeletePatient, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
-import { CreateContactUrgence, DeleteContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
 import { CreateExamenMedicaux, DeleteExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
-import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
-import { CreateMaladieChronic, DeleteMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
 import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/usersController.mjs"
+
+
+/*
 import { CreateConsultaion, DeleteConsultaion, GetConsultaion, UpdateConsultaion } from "../controllers/consultation.controller.mjs"
 import { CreateStatistique, DeleteStatistique, GetStatistique, UpdateStatistique } from "../controllers/statistique.controller.mjs"
 
-/*
+import { CreateContactUrgence, DeleteContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
+import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
+import { CreateMaladieChronic, DeleteMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
 
  */
 
@@ -43,34 +45,34 @@ router.delete("/delete-examen/:_id", DeleteExamenMedicaux)
 router.post("/create-examen", CreateExamenMedicaux)
 
 /****************** Routes Contact urgence  *****************/
-router.get("/get-urgence/:_id", GetContactUrgence)
-router.put("/update-urgence/:_id", UpdateContactUrgence)
-router.delete("/delete-urgence/:_id", DeleteContactUrgence)
-router.post("/create-urgence", CreateContactUrgence)
+// router.get("/get-urgence/:_id", GetContactUrgence)
+// router.put("/update-urgence/:_id", UpdateContactUrgence)
+// router.delete("/delete-urgence/:_id", DeleteContactUrgence)
+// router.post("/create-urgence", CreateContactUrgence)
 
 /****************** Routes Hospitalisation  *****************/
-router.get("/get-hospitalisation/:_id", GetHospitalisations)
-router.put("/update-hospitalisation/:_id", UpdateHospitalisations)
-router.delete("/delete-hospitalisation/:_id", DeleteHospitalisations)
-router.post("/create-hospitalisation", CreateHospitalisations)
+// router.get("/get-hospitalisation/:_id", GetHospitalisations)
+// router.put("/update-hospitalisation/:_id", UpdateHospitalisations)
+// router.delete("/delete-hospitalisation/:_id", DeleteHospitalisations)
+// router.post("/create-hospitalisation", CreateHospitalisations)
 
 /****************** Routes Maladie Chronique  *****************/
-router.get("/get-maladie/:_id", GetMaladieChronic)
-router.put("/update-maladie/:_id", UpdateMaladieChronic)
-router.delete("/delete-maladie/:_id", DeleteMaladieChronic)
-router.post("/create-maladie", CreateMaladieChronic)
+// router.get("/get-maladie/:_id", GetMaladieChronic)
+// router.put("/update-maladie/:_id", UpdateMaladieChronic)
+// router.delete("/delete-maladie/:_id", DeleteMaladieChronic)
+// router.post("/create-maladie", CreateMaladieChronic)
 
 
 /****************** Routes Statistic  *****************/
-router.get("/get-statistic/:_id", GetStatistique)
-router.put("/update-statistic/:_id", UpdateStatistique)
-router.delete("/delete-statistic/:_id", DeleteStatistique)
-router.post("/create-statistic", CreateStatistique)
+// router.get("/get-statistic/:_id", GetStatistique)
+// router.put("/update-statistic/:_id", UpdateStatistique)
+// router.delete("/delete-statistic/:_id", DeleteStatistique)
+// router.post("/create-statistic", CreateStatistique)
 
 /****************** Routes Consultations  *****************/
-router.get("/get-consultation/:_id", GetConsultaion)
-router.put("/update-consultation/:_id", UpdateConsultaion)
-router.delete("/delete-consultation/:_id", DeleteConsultaion)
-router.post("/create-consultation", CreateConsultaion)
+// router.get("/get-consultation/:_id", GetConsultaion)
+// router.put("/update-consultation/:_id", UpdateConsultaion)
+// router.delete("/delete-consultation/:_id", DeleteConsultaion)
+// router.post("/create-consultation", CreateConsultaion)
 
 export default router
