@@ -4,13 +4,13 @@ import { CreateExamenMedicaux, DeleteExamenMedicaux, GetExamenMedicaux, UpdateEx
 import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/usersController.mjs"
 
+import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateContactUrgence, DeleteContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
 
 /*
 import { CreateConsultaion, DeleteConsultaion, GetConsultaion, UpdateConsultaion } from "../controllers/consultation.controller.mjs"
 import { CreateStatistique, DeleteStatistique, GetStatistique, UpdateStatistique } from "../controllers/statistique.controller.mjs"
 
-import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateMaladieChronic, DeleteMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
 
  */
@@ -51,10 +51,10 @@ router.delete("/delete-urgence/:_id", DeleteContactUrgence)
 router.post("/create-urgence", CreateContactUrgence)
 
 /****************** Routes Hospitalisation  *****************/
-// router.get("/get-hospitalisation/:_id", GetHospitalisations)
-// router.put("/update-hospitalisation/:_id", UpdateHospitalisations)
-// router.delete("/delete-hospitalisation/:_id", DeleteHospitalisations)
-// router.post("/create-hospitalisation", CreateHospitalisations)
+router.get("/get-hospitalisation/:_id", GetHospitalisations)
+router.put("/update-hospitalisation/:_id", UpdateHospitalisations)
+router.delete("/delete-hospitalisation/:_id", DeleteHospitalisations)
+router.post("/create-hospitalisation", CreateHospitalisations)
 
 /****************** Routes Maladie Chronique  *****************/
 // router.get("/get-maladie/:_id", GetMaladieChronic)
