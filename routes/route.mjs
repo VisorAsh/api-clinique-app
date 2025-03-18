@@ -7,9 +7,9 @@ import { CreateConsultaion, DeleteConsultaion, GetConsultaion, UpdateConsultaion
 import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateContactUrgence, DeleteContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
 import { CreateMaladieChronic, DeleteMaladieChronic, GetMaladieChronic, UpdateMaladieChronic } from "../controllers/maladiChronique.controller.mjs"
-import { CreateStatistique, DeleteStatistique, GetStatistique, UpdateStatistique } from "../controllers/statistique.controller.mjs"
-/*
 
+/*
+import { CreateStatistique, DeleteStatistique, GetStatistique, UpdateStatistique } from "../controllers/statistique.controller.mjs"
 
 
 
@@ -65,10 +65,10 @@ router.post("/create-maladie", CreateMaladieChronic)
 
 
 /****************** Routes Statistic  *****************/
-router.get("/get-statistic/:_id", GetStatistique)
-router.put("/update-statistic/:_id", UpdateStatistique)
-router.delete("/delete-statistic/:_id", DeleteStatistique)
-router.post("/create-statistic", CreateStatistique)
+// router.get("/get-statistic/:_id", GetStatistique)
+// router.put("/update-statistic/:_id", UpdateStatistique)
+// router.delete("/delete-statistic/:_id", DeleteStatistique)
+// router.post("/create-statistic", CreateStatistique)
 
 /****************** Routes Consultations  *****************/
 router.get("/get-consultation/:_id", GetConsultaion)
