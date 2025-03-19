@@ -4,12 +4,12 @@ import dotenv from "dotenv"
 dotenv.config()
 import router from "./routes/route.mjs"
 import { MongoConnected } from "./db/db.mjs"
-// import cors from "cors"
+import cors from "cors"
 
 const app = express()
 
 //Pour donner l'autorisation à des domaines sur votre serveur
-const domaineAutorise = ["http://localhost:3500", "https://frontend-login-rho.vercel.app/"]
+const domaineAutorise = ["http://localhost:3500", "https://clinique-salem.vercel.app/"]
 
 const corsOptions = {
     origin: function (origin, callback) {
