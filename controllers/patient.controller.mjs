@@ -17,7 +17,7 @@ export const CreatePatient = async (req, res) => {
             await patient.save()
 
             if (patient) {
-                res.status(201).json({ message: "Patient crée avec succès !", data: patient })
+                res.status(201).json({ message: "ok", data: patient })
             } else {
                 res.status(500).json({ message: "Patient non crée !" })
             }

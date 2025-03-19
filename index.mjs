@@ -9,8 +9,8 @@ import { MongoConnected } from "./db/db.mjs"
 const app = express()
 
 //Pour donner l'autorisation à des domaines sur votre serveur
-//const domaineAutorise = ["http://localhost:3500", "https://frontend-login-rho.vercel.app/"]
-/* 
+const domaineAutorise = ["http://localhost:3500", "https://frontend-login-rho.vercel.app/"]
+
 const corsOptions = {
     origin: function (origin, callback) {
         if (!origin || domaineAutorise.includes(origin)) {
@@ -21,7 +21,7 @@ const corsOptions = {
     }
 }
 app.use(cors(corsOptions))
-*/
+
 MongoConnected()
 app.use(express.json())
 app.use("/api", router)
