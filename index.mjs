@@ -20,7 +20,7 @@ const corsOptions = {
         }
     }
 }
-app.use(cors(corsOptions))
+app.use(cors())
 
 MongoConnected()
 app.use(express.json())
