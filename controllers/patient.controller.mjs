@@ -1,33 +1,47 @@
 import { MongoConnected } from "../db/db.mjs"
+import { ContactUrgenceModel } from "../models/contactUrgence.model.mjs"
 import { InfosPatientsModel } from "../models/patients.models.mjs"
 
 export const CreatePatient = async (req, res) => {
-    const { nom, prenom, email, contact, dateNaissance, sexe, createdAt } = req.body
+   const { nom, prenom, birthDate, telephone, email, gender, emergencyContacts } = req.body
+
     try {
 
         const db = await MongoConnected()
         if (db === "ok") {
 
-            //Vérifions si l'id du patient existe déjà dans la base de donnée
-            const patientExist = await InfosPatientsModel.findOne({ email: email })
-            if (patientExist) {
-                return res.status(500).json({ message: "Adresse email est déjà utilisé ,veillez renseigner un autre email !" })
-            }
-            const patient = new InfosPatientsModel({ email, nom, prenom, contact, dateNaissance, sexe, createdAt })
-            await patient.save()
+            //On verifie si les contacts d'urgence existe
+            if(emergencyContacts && emergencyContacts.length > 0) {
+                //Vérifions si l'id du patient existe déjà dans la base de donnée
+                const patientExist = await InfosPatientsModel.findOne({ email: email })
+                if (patientExist) {
+                    return res.status(500).json({ message: "Adresse email est déjà utilisé ,veillez renseigner un autre email !" })
+                }
+                
+                //On créé une ref pour le patient
+                // const ref = new Date().getTime()+Math.random()
 
-            if (patient) {
-                res.status(201).json({ message: "ok", data: patient })
+                const patient = new InfosPatientsModel({ nom, prenom, birthDate, telephone, email, gender, emergencycontact: emergencyContacts})
+                await patient.save()
+
+                if (patient && patient._id) {
+                    
+                    
+                    res.status(201).json({ message: "ok", data: patient })
+                } else {
+                    res.status(500).json({ message: "Patient non crée !" })
+                }
             } else {
-                res.status(500).json({ message: "Patient non crée !" })
+                res.json({message: "Contacts d'urgence obligatoire"})
             }
+
         } else return res.status(500).json({ message: "Erreur de connexion à la base de données" })
 
     } catch (error) {
         console.log(error)
+        return res.json({message: "Erreur inconnue, verifier vos données ou votre connexion internet"})
     }
 }
-
 
 export const GetPatient = async (req, res) => {
     const { _id } = req.params
