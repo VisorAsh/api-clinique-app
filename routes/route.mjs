@@ -1,5 +1,5 @@
 import express from "express"
-import { CreatePatient, DeletePatient, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
+import { CreatePatient, DeletePatient, GetAllPatients, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
 import { CreateExamenMedicaux, DeleteExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
 import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
 import { CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/usersController.mjs"
@@ -22,6 +22,7 @@ const router = express.Router()
 router.get("/get-patient/", (req, res) => {
     res.json("Salut je suis une route qui marche très bien")
 })
+router.get("/get-all-patient/", GetAllPatients)
 router.get("/get-patient/:_id", GetPatient)
 router.put("/update-patient/:_id", UpdatePatient)
 router.delete("/delete-patient/:_id", DeletePatient)
