@@ -3,7 +3,7 @@ import { login } from "../controllers/authController.mjs"
 import { CreatePatient, DeletePatient, GetAllPatients, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
 import { CreateExamenMedicaux, DeleteExamenMedicaux, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
 import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
-import { CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/usersController.mjs"
+import { CreateUser, DeleteUser, GetUser, UpdateUser, GetAllUsers } from "../controllers/usersController.mjs"
 import { CreateConsultaion, DeleteConsultaion, GetConsultaion, UpdateConsultaion } from "../controllers/consultation.controller.mjs"
 import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
 import { CreateContactUrgence, DeleteContactUrgence, GetContactUrgence, UpdateContactUrgence } from "../controllers/contactUrgence.controller.mjs"
@@ -33,6 +33,7 @@ router.delete("/delete-patient/:_id", DeletePatient)
 router.post("/create-patient", CreatePatient)
 
 /****************** Routes Utilisateur  *****************/
+router.get("/get-all-user/", GetAllUsers)
 router.get("/get-user/:_id", GetUser)
 router.put("/update-user/:_id", UpdateUser)
 router.delete("/delete-user/:_id", DeleteUser)

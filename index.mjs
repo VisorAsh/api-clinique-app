@@ -9,7 +9,7 @@ import cors from "cors"
 const app = express()
 
 //Pour donner l'autorisation à des domaines sur votre serveur
-const domaineAutorise = ["http://localhost:3500", "https://clinique-salem.vercel.app/"]
+const domaineAutorise = ["http://localhost:3000", "https://web-clinique-app.vercel.app/"]
 
 const corsOptions = {
     origin: function (origin, callback) {

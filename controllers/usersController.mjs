@@ -107,6 +107,22 @@ export const GetUser = async (req, res) => {
     }
 }
 
+export const GetAllUsers = async (req, res) => {
+    try {
+        const db = await MongoConnected()
+        if (db === "ok") {
+            //Récupérons le patient à travers son id : patientID
+            const data = await UserModel.find()
+            if (data) {
+                res.status(200).json({ message: "ok", users: data })
+            } else {
+                res.status(404).json({ message: "Utilisateur Inexistant !" })
+            }
+        } else return res.status(500).json({ message: "Erreur de connexion à la base de données" })
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export const UpdateUser = async (req, res) => {
     const { _id } = req.params
