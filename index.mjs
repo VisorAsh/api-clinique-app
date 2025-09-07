@@ -12,14 +12,14 @@ const app = express()
 const domaineAutorise = ["http://localhost:3000", "https://web-clinique-app.vercel.app/"]
 
 const corsOptions = {
-    // origin: "*", // autorise toutes les origines
-    origin: function (origin, callback) {
-        if (!origin || domaineAutorise.includes(origin)) {
-            callback(null, true)
-        } else {
-            callback(new Error("Domaine non autorisé par le cors"))
-        }
-    }
+    origin: "*", // autorise toutes les origines
+    // origin: function (origin, callback) {
+    //     if (!origin || domaineAutorise.includes(origin)) {
+    //         callback(null, true)
+    //     } else {
+    //         callback(new Error("Domaine non autorisé par le cors"))
+    //     }
+    // }
 }
 app.use(cors(corsOptions))
 
