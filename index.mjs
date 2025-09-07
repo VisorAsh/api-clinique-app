@@ -12,6 +12,7 @@ const app = express()
 const domaineAutorise = ["http://localhost:3000", "https://web-clinique-app.vercel.app/"]
 
 const corsOptions = {
+    // origin: "*", // autorise toutes les origines
     origin: function (origin, callback) {
         if (!origin || domaineAutorise.includes(origin)) {
             callback(null, true)
@@ -20,7 +21,7 @@ const corsOptions = {
         }
     }
 }
-app.use(cors())
+app.use(cors(corsOptions))
 
 MongoConnected()
 app.use(express.json())
