@@ -21,6 +21,66 @@ export const CreateExamenMedicaux = async (req, res) => {
     }
 }
 
+export const GetAllExamens = async (req, res) => {
+    try {
+        const db = await MongoConnected();
+        if (db === "ok") {
+            const examens = await ExamenMedicalModel.find().populate("patientId");
+
+            if (examens && examens.length > 0) {
+                res.status(200).json({
+                    message: "Examens médicaux récupérés avec succès !",
+                    examens: examens,
+                });
+            } else {
+                res.status(404).json({
+                    message: "Aucun examen médical trouvé !",
+                });
+            }
+        } else {
+            return res.status(500).json({
+                message: "Erreur de connexion à la base de données",
+            });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: "Erreur lors de la récupération des examens médicaux",
+        });
+    }
+};
+
+// Récupérer les examens d'un patient spécifique
+export const GetExamensByPatient = async (req, res) => {
+    const { patientId } = req.params;
+    try {
+        const db = await MongoConnected();
+        if (db === "ok") {
+            const examens = await ExamenMedicalModel.find({ patientId }).populate("patientId");
+
+            if (examens && examens.length > 0) {
+                res.status(200).json({
+                    message: "Examens médicaux du patient récupérés avec succès !",
+                    examens: examens,
+                });
+            } else {
+                res.status(404).json({
+                    message: "Aucun examen médical trouvé pour ce patient !",
+                });
+            }
+        } else {
+            return res.status(500).json({
+                message: "Erreur de connexion à la base de données",
+            });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: "Erreur lors de la récupération des examens médicaux du patient",
+        });
+    }
+};
+
 export const GetExamenMedicaux = async (req, res) => {
     const { _id } = req.params
     try {
