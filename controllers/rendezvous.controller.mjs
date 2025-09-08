@@ -20,6 +20,35 @@ export const CreateRendezvous = async (req, res) => {
     }
 }
 
+export const GetAllRendezVous = async (req, res) => {
+    try {
+        const db = await MongoConnected();
+        if (db === "ok") {
+            const rendezvous = await RendezVousModel.find().populate("patientId");
+
+            if (rendezvous && rendezvous.length > 0) {
+                res.status(200).json({
+                    message: "Rendez-vous récupérés avec succès !",
+                    rendezvous: rendezvous,
+                });
+            } else {
+                res.status(404).json({
+                    message: "Aucun rendez-vous trouvé !",
+                });
+            }
+        } else {
+            return res.status(500).json({
+                message: "Erreur de connexion à la base de données",
+            });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: "Erreur lors de la récupération des rendez-vous",
+        });
+    }
+};
+
 export const GetRendezvous = async (req, res) => {
     const { _id } = req.params // id du rdv
 

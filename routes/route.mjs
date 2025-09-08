@@ -2,7 +2,7 @@ import express from "express"
 import { login } from "../controllers/authController.mjs"
 import { CreatePatient, DeletePatient, GetAllPatients, GetPatient, UpdatePatient } from "../controllers/patient.controller.mjs"
 import { CreateExamenMedicaux, DeleteExamenMedicaux, GetAllExamens, GetExamensByPatient, GetExamenMedicaux, UpdateExamenMedicaux } from "../controllers/examenMedicaux.controller.mjs"
-import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous } from "../controllers/rendezvous.controller.mjs"
+import { CreateRendezvous, DeleteRendezvous, GetRendezvous, UpdateRendezvous, GetAllRendezVous } from "../controllers/rendezvous.controller.mjs"
 import { CreateUser, DeleteUser, GetUser, UpdateUser, GetAllUsers } from "../controllers/usersController.mjs"
 import { CreateConsultaion, DeleteConsultaion, GetConsultaion, UpdateConsultaion, GetAllConsultations, GetConsultationsByPatient } from "../controllers/consultation.controller.mjs"
 import { CreateHospitalisations, DeleteHospitalisations, GetHospitalisations, UpdateHospitalisations } from "../controllers/hospitalisation.controller.mjs"
@@ -40,6 +40,7 @@ router.delete("/delete-user/:_id", DeleteUser)
 router.post("/create-user", CreateUser)
 
 /****************** Routes Rendez vous Patient  *****************/
+router.get("/get-all-rendezvous", GetAllRendezVous)
 router.get("/get-rendezvous/:_id", GetRendezvous)
 router.put("/update-rendezvous/:_id", UpdateRendezvous)
 router.delete("/delete-rendezvous/:_id", DeleteRendezvous)

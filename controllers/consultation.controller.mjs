@@ -68,7 +68,7 @@ export const GetConsultationsByPatient = async (req, res) => {
                 });
             } else {
                 res.status(404).json({
-                    message: "Aucun examen médical trouvé pour ce patient !",
+                    message: "Aucune consultation médical trouvé pour ce patient !",
                 });
             }
         } else {
